@@ -1,0 +1,2 @@
+14:30:21 [Test worker] INFO  tests.TestBase - Start method testLogin with parameters: []
+14:30:53 [Test worker] INFO  tests.TestBase - Stopped method testLogin

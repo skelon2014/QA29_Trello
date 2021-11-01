@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="SanityTests" verbose="1" >
+    <test name="sanity" >
+        <classes>
+            <class name="tests.LoginTests" />
+            <class name="tests.BoardCreation" />
+            <class name="tests.BoardDeletionTests" />
+        </classes>
+    </test>
+</suite>

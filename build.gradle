@@ -1,0 +1,47 @@
+plugins {
+    id 'java'
+}
+
+group 'org.telran'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.seleniumhq.selenium:selenium-java:4.0.0'
+    implementation 'org.testng:testng:7.4.0'
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.0.1'
+    implementation 'ch.qos.logback:logback-classic:1.2.6'
+}
+
+test {
+    useTestNG()
+}
+
+task sanity(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty('browser', "${browser}")
+    }
+}
+task boards(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng-boards.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty('browser', "${browser}")
+    }
+}
+
+task login(type: Test){
+    useTestNG(){
+        suites 'src/test/resources/testng_login.xml'
+    }
+    if(project.hasProperty('browser')){
+        systemProperty('browser', "${browser}")
+    }
+}
